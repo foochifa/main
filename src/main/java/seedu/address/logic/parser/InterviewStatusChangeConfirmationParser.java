@@ -24,7 +24,7 @@ public class InterviewStatusChangeConfirmationParser extends InternshipDiaryPars
     @Override
     public Command parseCommand(String userInput) throws ParseException {
         if (userInput.trim().toLowerCase().equals(CONFIRMATION_COMMAND_WORD)) {
-            return StatusChangeCommand.CreateStatusChange(index, Status.INTERVIEW);
+            return StatusChangeCommand.createStatusChange(index, Status.INTERVIEW);
         } else {
             throw new InterviewStatusChangeConfirmationParseException(CHANGE_REFUSAL);
         }

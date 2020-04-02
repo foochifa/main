@@ -15,7 +15,7 @@ public class StatusChangeCommand extends EditCommand {
     /**
      * Static constructor for StatusChangeCommand. Will return a StatusChangeCommand.
      */
-    public static StatusChangeCommand CreateStatusChange(Index index, Status statusToChangeTo) {
+    public static StatusChangeCommand createStatusChange(Index index, Status statusToChangeTo) {
         EditCommand.EditInternshipDescriptor editInternshipDescriptor = new EditCommand.EditInternshipDescriptor();
         editInternshipDescriptor.setStatus(statusToChangeTo);
         return new StatusChangeCommand(index, editInternshipDescriptor);
