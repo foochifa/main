@@ -9,6 +9,8 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.InterviewCommand;
 import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.logic.parser.InternshipDiaryParser;
+import seedu.address.logic.parser.InterviewStatusChangeConfirmationParser;
 import seedu.address.model.Model;
 import seedu.address.model.internship.InternshipApplication;
 import seedu.address.model.internship.interview.Interview;
@@ -17,14 +19,16 @@ import seedu.address.model.internship.interview.Interview;
  * Adds an interview into an Internship Application.
  */
 public class InterviewAddCommand extends InterviewCommand {
-    public static final String MESSAGE_SUCCESS = "New Interview added: %1$s";
+    public static final String MESSAGE_SUCCESS = "Do you want to change the Status of Internship Application "
+            + "into 'Interview'? Enter Yes if you wish to change the status. Otherwise, enter anything else\n"
+            + "The following Interview has been added: %1$s";
     public static final String MESSAGE_DUPLICATE_INTERVIEW =
             "This interview already exists in the internship application: %1$s";
     public static final String MESSAGE_USAGE = "Adds an interview into an Internship Application.\n"
             + "Parameters: INDEX (must be a positive integer) add "
             + "[" + PREFIX_IS_ONLINE + "is it an online interview (true/false)] "
             + "[" + PREFIX_DATE + "DATE] "
-            + "[" + PREFIX_ADDRESS + "ADDRESS (optional if online interview] "
+            + "[" + PREFIX_ADDRESS + "ADDRESS (optional if online interview]\n "
             + "Example: " + COMMAND_WORD + " 1 add "
             + PREFIX_IS_ONLINE + "false "
             + PREFIX_ADDRESS + "123 road "
@@ -38,6 +42,11 @@ public class InterviewAddCommand extends InterviewCommand {
         requireNonNull(index);
         this.index = index;
         toAdd = interview;
+    }
+
+    @Override
+    public InternshipDiaryParser getNextInternshipDiaryParser() {
+        return new InterviewStatusChangeConfirmationParser(index);
     }
 
     @Override

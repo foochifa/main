@@ -29,7 +29,7 @@ public class InterviewEditCommand extends InterviewCommand {
             + "Parameters: INDEX(index of internship application) edit INDEX (index of interview to be edited) "
             + "[" + PREFIX_IS_ONLINE + "is it an online interview (true/false)] "
             + "[" + PREFIX_DATE + "DATE] "
-            + "[" + PREFIX_ADDRESS + "ADDRESS (optional if online interview] "
+            + "[" + PREFIX_ADDRESS + "ADDRESS (optional if online interview]\n "
             + "Example: " + COMMAND_WORD + " 1 edit "
             + PREFIX_IS_ONLINE + "false "
             + PREFIX_ADDRESS + "123 road "

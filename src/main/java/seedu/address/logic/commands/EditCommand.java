@@ -101,7 +101,7 @@ public class EditCommand extends Command {
      * Creates and returns a {@code InternshipApplication} with the details of {@code internshipToEdit}
      * edited with {@code editInternshipDescriptor}.
      */
-    private static InternshipApplication createEditedInternship(InternshipApplication internshipToEdit,
+    protected static InternshipApplication createEditedInternship(InternshipApplication internshipToEdit,
                                                                 EditInternshipDescriptor editInternshipDescriptor) {
         assert internshipToEdit != null;
 
